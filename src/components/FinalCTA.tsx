@@ -19,7 +19,7 @@ export default function FinalCTA() {
         // SERVICE CONFIGURATION
         // For Web3Forms: Use "https://api.web3forms.com/submit" and your Access Key
         // For Formspree: Use "https://formspree.io/f/YOUR_FORM_ID"
-        const ENDPOINT = "https://formspree.io/f/mdaojgwr";
+        const ENDPOINT = "https://formspree.io/f/xkoneyzg";
         const ACCESS_KEY = ""; // Formspree doesn't use this, but we'll leave it empty for clarity
 
         try {
