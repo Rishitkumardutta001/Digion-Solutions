@@ -50,11 +50,15 @@ export default function Footer() {
                         <ul className="space-y-4">
                             <li className="flex items-center gap-3 text-text-dim text-sm">
                                 <Mail size={16} className="text-accent" />
-                                <span>private@digion.com</span>
+                                <span>info@digion.in</span>
                             </li>
                             <li className="flex items-center gap-3 text-text-dim text-sm">
                                 <MapPin size={16} className="text-accent" />
                                 <span>Bangalore, India</span>
+                            </li>
+                            <li className="flex items-center gap-3 text-text-dim text-sm">
+                                <Phone size={16} className="text-accent" />
+                                <span>+91 99001 19350</span>
                             </li>
                         </ul>
                     </div>
