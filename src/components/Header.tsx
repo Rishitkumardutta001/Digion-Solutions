@@ -38,8 +38,12 @@ export default function Header() {
             >
                 <div className="container mx-auto px-8 h-24 flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="text-3xl font-display font-medium text-white tracking-tighter hover:opacity-80 transition-opacity duration-500">
-                        DigiOn<span className="text-accent">.</span>
+                    <Link href="/" className="relative h-12 w-40 hover:opacity-80 transition-opacity duration-500">
+                        <img
+                            src="/logo.jpg"
+                            alt="DigiOn Solutions"
+                            className="h-full w-full object-contain invert opacity-90 mix-blend-screen"
+                        />
                     </Link>
 
                     {/* Desktop Nav */}

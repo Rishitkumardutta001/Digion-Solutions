@@ -9,8 +9,12 @@ export default function Footer() {
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                     <div className="space-y-4">
-                        <Link href="/" className="text-2xl font-display font-bold text-white tracking-tighter">
-                            DigiOn<span className="text-accent">.</span>
+                        <Link href="/" className="inline-block relative h-10 w-32 hover:opacity-80 transition-opacity duration-500">
+                            <img
+                                src="/logo.jpg"
+                                alt="DigiOn Solutions"
+                                className="h-full w-full object-contain invert opacity-60 hover:opacity-90 transition-opacity mix-blend-screen"
+                            />
                         </Link>
                         <p className="text-text-dim text-sm leading-relaxed">
                             Private Digital Engineering Studio. <br />
