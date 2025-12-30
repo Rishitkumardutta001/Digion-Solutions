@@ -38,10 +38,10 @@ export default function Hero() {
                     </div>
 
                     <h1 className="text-5xl md:text-8xl font-bold font-display tracking-tight text-white mb-8 leading-[1.1]">
-                        <span className="block italic">
+                        <span className="block">
                             Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/60">Digital Dominance.</span>
                         </span>
-                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-200/50 to-accent/50 opacity-90 not-italic">
+                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-200/50 to-accent/50 opacity-90">
                             AI. Marketing. Design.
                         </span>
                     </h1>
