@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { categories } from "@/lib/experience-data";
@@ -45,9 +46,13 @@ export default function Experience() {
                             >
                                 {/* Abstract Cinematic Visual Background */}
                                 <div className="absolute inset-0 grayscale opacity-30 group-hover:opacity-50 group-hover:grayscale-0 transition-all duration-1000 scale-100 group-hover:scale-105">
-                                    <div
-                                        className="absolute inset-0 bg-cover bg-center"
-                                        style={{ backgroundImage: `url(${cat.image || '/hero-bg.png'})` }}
+                                    <Image
+                                        src={cat.image || '/hero-bg.png'}
+                                        alt={cat.title}
+                                        fill
+                                        quality={60}
+                                        className="object-cover object-center"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-r from-[#020202] via-[#020202]/60 md:via-[#020202]/40 to-transparent" />
                                 </div>

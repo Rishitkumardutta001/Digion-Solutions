@@ -14,8 +14,9 @@ export default function Hero() {
                     alt="Hero background texture"
                     fill
                     priority
+                    quality={60}
                     className="object-cover object-center opacity-40"
-                    sizes="100vw"
+                    sizes="(max-width: 768px) 100vw, 100vw"
                 />
             </div>
             <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none mix-blend-overlay" />
@@ -37,22 +38,12 @@ export default function Hero() {
                     </div>
 
                     <h1 className="text-5xl md:text-8xl font-bold font-display tracking-tight text-white mb-8 leading-[1.1]">
-                        <motion.span
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1, delay: 0.3 }}
-                            className="block"
-                        >
+                        <span className="block italic">
                             Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/60">Digital Dominance.</span>
-                        </motion.span>
-                        <motion.span
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1, delay: 0.5 }}
-                            className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-200/50 to-accent/50 opacity-90"
-                        >
+                        </span>
+                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-200/50 to-accent/50 opacity-90 not-italic">
                             AI. Marketing. Design.
-                        </motion.span>
+                        </span>
                     </h1>
 
                     <p className="text-lg md:text-xl text-white/60 mb-10 max-w-3xl mx-auto leading-loose font-light tracking-wide">

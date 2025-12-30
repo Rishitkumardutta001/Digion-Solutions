@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { categories } from "@/lib/experience-data";
 import { notFound } from "next/navigation";
@@ -66,9 +67,13 @@ export default function CategoryPage() {
                             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
                                 {/* Visual Card */}
                                 <div className="lg:col-span-8 relative aspect-[16/10] overflow-hidden rounded-sm border border-white/5 bg-[#050505]">
-                                    <div
-                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-[2000ms] ease-out group-hover:scale-105 opacity-80"
-                                        style={{ backgroundImage: `url(${exp.image || '/hero-bg.png'})` }}
+                                    <Image
+                                        src={exp.image || '/hero-bg.png'}
+                                        alt={exp.title}
+                                        fill
+                                        quality={60}
+                                        className="object-cover object-center transition-transform duration-[2000ms] ease-out group-hover:scale-105 opacity-80"
+                                        sizes="(max-width: 1024px) 100vw, 50vw"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-transparent to-transparent" />
                                 </div>

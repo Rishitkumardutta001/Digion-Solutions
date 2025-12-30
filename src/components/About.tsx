@@ -1,12 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
     return (
         <section id="about" className="py-32 bg-primary relative overflow-hidden">
             {/* Background */}
-            <div className="absolute inset-0 bg-[url('/about-bg.png')] opacity-20 bg-cover bg-center pointer-events-none mix-blend-screen" />
+            <div className="absolute inset-0 pointer-events-none mix-blend-screen opacity-20">
+                <Image
+                    src="/about-bg.png"
+                    alt=""
+                    fill
+                    quality={60}
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 80vw"
+                />
+            </div>
 
             <div className="container mx-auto px-6 max-w-4xl text-center relative z-10">
                 <motion.h2
