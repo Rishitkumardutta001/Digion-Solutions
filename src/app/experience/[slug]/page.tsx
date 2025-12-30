@@ -23,7 +23,7 @@ export default function CategoryPage() {
             <div className="container mx-auto px-6 py-12">
                 <Link
                     href="/#experience"
-                    className="inline-flex items-center gap-2 text-text-dim/50 hover:text-accent transition-colors text-[10px] uppercase tracking-[0.3em] group"
+                    className="inline-flex items-center gap-2 text-white/60 hover:text-accent transition-colors text-[10px] uppercase tracking-[0.3em] group"
                 >
                     <ArrowLeft size={12} className="group-hover:-translate-x-1 transition-transform" />
                     All Rooms
@@ -44,7 +44,7 @@ export default function CategoryPage() {
                         <h1 className="text-4xl md:text-8xl font-display font-light mb-8 md:mb-12 tracking-tight leading-tight">
                             {category.title}
                         </h1>
-                        <p className="text-base md:text-2xl text-text-dim/70 font-light leading-relaxed max-w-3xl">
+                        <p className="text-base md:text-2xl text-white/80 font-light leading-relaxed max-w-3xl">
                             {category.descriptor}
                         </p>
                     </motion.div>
@@ -75,10 +75,10 @@ export default function CategoryPage() {
 
                                 {/* Text Detail */}
                                 <div className="lg:col-span-4 pb-4 md:pb-8">
-                                    <h3 className="text-2xl md:text-4xl font-display font-light mb-4 md:mb-6 tracking-tight">
+                                    <h2 className="text-2xl md:text-4xl font-display font-light mb-4 md:mb-6 tracking-tight">
                                         {exp.title}
-                                    </h3>
-                                    <p className="text-sm md:text-base text-text-dim font-light leading-relaxed mb-8 md:mb-10">
+                                    </h2>
+                                    <p className="text-sm md:text-base text-white/60 font-light leading-relaxed mb-8 md:mb-10">
                                         {exp.descriptor}
                                     </p>
 
@@ -101,7 +101,7 @@ export default function CategoryPage() {
             {/* Bottom Navigation */}
             <section className="border-t border-white/5 py-24 bg-primary/30">
                 <div className="container mx-auto px-6 text-center">
-                    <p className="text-text-dim/40 text-sm mb-8 font-light italic">End of Session</p>
+                    <p className="text-white/40 text-sm mb-8 font-light italic">End of Session</p>
                     <Link
                         href="/#experience"
                         className="text-2xl font-display font-light text-white hover:text-accent transition-colors flex items-center justify-center gap-4 group"

@@ -31,7 +31,7 @@ export default function WhyDigiOn() {
                                 transition={{ delay: i * 0.2 }}
                             >
                                 <h3 className="text-xl font-medium text-white mb-2">{item.title}</h3>
-                                <p className="text-text-dim font-light leading-relaxed">{item.desc}</p>
+                                <p className="text-white/60 font-light leading-relaxed">{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>

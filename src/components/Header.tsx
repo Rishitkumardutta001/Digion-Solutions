@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -39,10 +40,13 @@ export default function Header() {
                 <div className="container mx-auto px-8 h-24 flex items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="relative h-12 w-40 hover:opacity-80 transition-opacity duration-500">
-                        <img
+                        <Image
                             src="/logo.png"
                             alt="DigiOn Solutions"
-                            className="h-full w-full object-contain opacity-90"
+                            fill
+                            className="object-contain opacity-90"
+                            priority
+                            sizes="(max-width: 768px) 160px, 160px"
                         />
                     </Link>
 
@@ -71,8 +75,10 @@ export default function Header() {
 
                     {/* Mobile Toggle */}
                     <button
-                        className="md:hidden text-white/80 hover:text-white"
+                        className="md:hidden text-white/80 hover:text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
                         onClick={() => setIsOpen(!isOpen)}
+                        aria-label={isOpen ? "Close menu" : "Open menu"}
+                        aria-expanded={isOpen}
                     >
                         {isOpen ? <X size={20} /> : <Menu size={20} />}
                     </button>

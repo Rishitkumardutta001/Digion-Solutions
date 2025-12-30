@@ -23,7 +23,7 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
-                    className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left text-text-dim text-lg font-light leading-relaxed"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left text-white/60 text-lg font-light leading-relaxed"
                 >
                     <div className="space-y-6">
                         <p>

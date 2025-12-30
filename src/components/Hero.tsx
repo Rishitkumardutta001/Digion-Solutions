@@ -1,13 +1,23 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Hero() {
     return (
         <section className="relative w-full min-h-screen flex flex-col items-center justify-center pt-[5px] md:pt-[21px] pb-10 md:pb-16 px-6 overflow-hidden bg-primary">
-            {/* Abstract Background Texture - Visually starts below divider */}
-            <div className="absolute inset-0 top-[1px] bg-[url('/hero-bg.png')] opacity-40 bg-cover bg-center pointer-events-none mix-blend-overlay [mask-image:linear-gradient(to_bottom,transparent,black_150px)]" />
+            {/* Abstract Background Texture - Optimized for LCP */}
+            <div className="absolute inset-0 top-[1px] pointer-events-none mix-blend-overlay [mask-image:linear-gradient(to_bottom,transparent,black_150px)]">
+                <Image
+                    src="/hero-bg.png"
+                    alt="Hero background texture"
+                    fill
+                    priority
+                    className="object-cover object-center opacity-40"
+                    sizes="100vw"
+                />
+            </div>
             <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none mix-blend-overlay" />
 
             {/* Deep Ambient Glows - Subtler */}
@@ -45,7 +55,7 @@ export default function Hero() {
                         </motion.span>
                     </h1>
 
-                    <p className="text-lg md:text-xl text-text-dim/80 mb-10 max-w-3xl mx-auto leading-loose font-light tracking-wide">
+                    <p className="text-lg md:text-xl text-white/60 mb-10 max-w-3xl mx-auto leading-loose font-light tracking-wide">
                         The private studio for high-stakes digital systems. We architect growth through <span className="text-white">AI-Powered Automation</span>, <span className="text-white">Performance Marketing</span>, and <span className="text-white">Elite Design Solutions</span>.
                     </p>
 

@@ -17,7 +17,7 @@ export default function Experience() {
                     <h2 className="text-4xl md:text-7xl font-display font-light text-white/95 tracking-tight leading-[1.1] mb-12">
                         Digital Experiences. <br /> Curated by Intent.
                     </h2>
-                    <p className="text-text-dim/60 font-light max-w-2xl mx-auto text-lg leading-relaxed">
+                    <p className="text-white/60 font-light max-w-2xl mx-auto text-lg leading-relaxed">
                         Step into specialized environments engineered for specific operational demands.
                         Each room is a case study in precision.
                     </p>
@@ -61,7 +61,7 @@ export default function Experience() {
                                         <h3 className="text-3xl md:text-6xl font-display font-light text-white mb-4 md:mb-6 tracking-tight leading-tight">
                                             {cat.title}
                                         </h3>
-                                        <p className="text-sm md:text-base text-text-dim leading-relaxed mb-8 md:mb-10 max-w-md font-light group-hover:text-white/70 transition-colors">
+                                        <p className="text-sm md:text-base text-white/60 leading-relaxed mb-8 md:mb-10 max-w-md font-light group-hover:text-white/80 transition-colors">
                                             {cat.descriptor}
                                         </p>
 

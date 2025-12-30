@@ -26,7 +26,7 @@ export default function Industries() {
                             transition={{ delay: i * 0.1 }}
                             className="border-l border-white/10 pl-6 py-2"
                         >
-                            <span className="text-lg font-light text-text-dim hover:text-white transition-colors cursor-default">
+                            <span className="text-lg font-light text-white/60 hover:text-white transition-colors cursor-default">
                                 {ind}
                             </span>
                         </motion.div>
@@ -34,7 +34,7 @@ export default function Industries() {
                 </div>
 
                 <div className="border-t border-white/5 pt-16">
-                    <span className="text-[9px] font-medium tracking-[0.4em] text-white/20 uppercase block mb-12 text-center">
+                    <span className="text-[9px] font-medium tracking-[0.4em] text-white/40 uppercase block mb-12 text-center">
                         Brands We Scale
                     </span>
                     <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-10 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">

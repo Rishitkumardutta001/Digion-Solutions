@@ -50,7 +50,7 @@ export default function WhatWeEngineer() {
                             <h3 className="text-2xl font-light text-white mb-4 group-hover:text-accent transition-colors relative z-10">
                                 {cap.title}
                             </h3>
-                            <p className="text-text-dim leading-relaxed font-light relative z-10 group-hover:text-white/80 transition-colors">
+                            <p className="text-white/60 leading-relaxed font-light relative z-10 group-hover:text-white/80 transition-colors">
                                 {cap.desc}
                             </p>
                         </motion.div>

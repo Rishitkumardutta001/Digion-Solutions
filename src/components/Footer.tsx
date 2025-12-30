@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Twitter, Linkedin, Instagram, Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
@@ -9,14 +10,16 @@ export default function Footer() {
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                     <div className="space-y-4">
-                        <Link href="/" className="inline-block relative h-10 w-32 hover:opacity-80 transition-opacity duration-500">
-                            <img
+                        <Link href="/" className="inline-block relative h-10 w-32 hover:opacity-80 transition-opacity duration-500" aria-label="DigiOn Solutions Home">
+                            <Image
                                 src="/logo.png"
                                 alt="DigiOn Solutions"
-                                className="h-full w-full object-contain opacity-60 hover:opacity-90 transition-opacity"
+                                fill
+                                className="object-contain opacity-60 hover:opacity-90 transition-opacity"
+                                sizes="128px"
                             />
                         </Link>
-                        <p className="text-text-dim text-sm leading-relaxed">
+                        <p className="text-white/60 text-sm leading-relaxed">
                             Private Digital Engineering Studio. <br />
                             Leading Digital Marketing Agency & <br />
                             AI Automation Partner.
@@ -28,7 +31,7 @@ export default function Footer() {
                         <ul className="space-y-3">
                             {["AI & Automation", "Performance Marketing", "SEO Strategy", "Creative Design"].map((item) => (
                                 <li key={item}>
-                                    <Link href="#" className="text-text-dim text-sm hover:text-accent transition-colors">
+                                    <Link href="#" className="text-white/60 text-sm hover:text-accent transition-colors">
                                         {item}
                                     </Link>
                                 </li>
@@ -39,25 +42,25 @@ export default function Footer() {
                     <div>
                         <h4 className="text-white font-bold mb-6">Studio</h4>
                         <ul className="space-y-3">
-                            <li><Link href="/#about" className="text-text-dim text-sm hover:text-accent transition-colors">About</Link></li>
-                            <li><Link href="/#experience" className="text-text-dim text-sm hover:text-accent transition-colors">Experience</Link></li>
-                            <li><Link href="/#contact" className="text-text-dim text-sm hover:text-accent transition-colors">Private Consultation</Link></li>
-                            <li><Link href="#" className="text-text-dim text-sm hover:text-accent transition-colors">Careers</Link></li>
+                            <li><Link href="/#about" className="text-white/60 text-sm hover:text-accent transition-colors">About</Link></li>
+                            <li><Link href="/#experience" className="text-white/60 text-sm hover:text-accent transition-colors">Experience</Link></li>
+                            <li><Link href="/#contact" className="text-white/60 text-sm hover:text-accent transition-colors">Private Consultation</Link></li>
+                            <li><Link href="#" className="text-white/60 text-sm hover:text-accent transition-colors">Careers</Link></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="text-white font-bold mb-6">Connect</h4>
                         <ul className="space-y-4">
-                            <li className="flex items-center gap-3 text-text-dim text-sm">
+                            <li className="flex items-center gap-3 text-white/60 text-sm">
                                 <Mail size={16} className="text-accent" />
                                 <span>info@digion.in</span>
                             </li>
-                            <li className="flex items-center gap-3 text-text-dim text-sm">
+                            <li className="flex items-center gap-3 text-white/60 text-sm">
                                 <MapPin size={16} className="text-accent" />
                                 <span>Bangalore, India</span>
                             </li>
-                            <li className="flex items-center gap-3 text-text-dim text-sm">
+                            <li className="flex items-center gap-3 text-white/60 text-sm">
                                 <Phone size={16} className="text-accent" />
                                 <span>+91 99001 19350</span>
                             </li>
@@ -66,12 +69,12 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-text-dim/50 text-xs">
+                    <p className="text-white/40 text-xs">
                         &copy; {new Date().getFullYear()} DigiOn Solutions. All rights reserved.
                     </p>
                     <div className="flex gap-6">
-                        <Link href="#" className="text-text-dim/50 hover:text-white transition-colors"><Linkedin size={18} /></Link>
-                        <Link href="#" className="text-text-dim/50 hover:text-white transition-colors"><Twitter size={18} /></Link>
+                        <Link href="#" className="text-white/40 hover:text-white transition-colors" aria-label="LinkedIn Profile"><Linkedin size={18} /></Link>
+                        <Link href="#" className="text-white/40 hover:text-white transition-colors" aria-label="Twitter Profile"><Twitter size={18} /></Link>
                     </div>
                 </div>
             </div>

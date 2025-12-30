@@ -66,7 +66,7 @@ export default function FinalCTA() {
                             Ready to Engineer <br />
                             <span className="text-accent">Dominance?</span>
                         </h2>
-                        <p className="text-sm md:text-base text-white/40 font-light tracking-wide max-w-xl mx-auto leading-relaxed">
+                        <p className="text-sm md:text-base text-white/60 font-light tracking-wide max-w-xl mx-auto leading-relaxed">
                             We operate by invitation and selective application. <br />
                             Tell us about your digital vision.
                         </p>
@@ -83,7 +83,7 @@ export default function FinalCTA() {
                                 >
                                     <CheckCircle2 className="w-12 h-12 text-accent mx-auto mb-6" />
                                     <h3 className="text-2xl font-light text-white mb-4">Transmission Received</h3>
-                                    <p className="text-white/40 font-light leading-relaxed">
+                                    <p className="text-white/60 font-light leading-relaxed">
                                         Your vision has been recorded. Our studio will review your <br />
                                         application and reach out if there is a strategic fit.
                                     </p>
@@ -162,7 +162,7 @@ export default function FinalCTA() {
                                         </button>
 
                                         {status === "error" && (
-                                            <p className="mt-6 text-[10px] text-red-500/80 tracking-widest uppercase">
+                                            <p className="mt-6 text-[10px] text-red-400 tracking-widest uppercase font-medium">
                                                 An error occurred. Please try again or email us directly.
                                             </p>
                                         )}
