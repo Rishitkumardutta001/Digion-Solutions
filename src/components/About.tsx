@@ -27,7 +27,7 @@ export default function About() {
                 >
                     <div className="space-y-6">
                         <p>
-                            DigiOn Solutions is directed by elite MNC-pedigree leadership with backgrounds at **Oracle, HP, and Vedantu**. We bring over **60+ years of combined industry expertise** to every partnership.
+                            DigiOn Solutions is directed by elite MNC-pedigree leadership with backgrounds at <span className="text-white font-medium">Oracle, HP, and Vedantu</span>. We bring over <span className="text-white font-medium">60+ years of combined industry expertise</span> to every partnership.
                         </p>
                         <p>
                             We are not a typical agency. We are a private digital engineering studio that transforms complex business challenges into automated, high-yield digital assets.
@@ -35,7 +35,7 @@ export default function About() {
                     </div>
                     <div className="space-y-6">
                         <p>
-                            Our mandate is precision. Our results are calibrated for maximum impact—proven through **133% overall traffic increases** and **68% reductions in acquisition costs** within our first days of engagement.
+                            Our mandate is precision. Our results are calibrated for maximum impact—proven through <span className="text-white font-medium">133% overall traffic increases</span> and <span className="text-white font-medium">68% reductions in acquisition costs</span> within our first days of engagement.
                         </p>
                         <p>
                             From the first line of code to the final AI automation, everything we build is intentional, scalable, and designed for total market dominance.
