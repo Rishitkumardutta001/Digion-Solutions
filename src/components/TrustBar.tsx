@@ -13,7 +13,7 @@ export default function TrustBar() {
     return (
         <section className="bg-primary/50 border-y border-white/5 py-10 overflow-hidden">
             <div className="container mx-auto px-6">
-                <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-8">
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-x-16 gap-y-6 md:gap-y-8 max-w-max mx-auto md:max-w-none">
                     {awards.map((award, i) => (
                         <motion.div
                             key={i}
