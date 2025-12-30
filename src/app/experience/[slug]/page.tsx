@@ -65,8 +65,13 @@ export default function CategoryPage() {
                             className="group"
                         >
                             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-                                {/* Visual Card */}
-                                <div className="lg:col-span-8 relative aspect-[16/10] overflow-hidden rounded-sm border border-white/5 bg-[#050505]">
+                                {/* Visual Card - Clickable */}
+                                <a
+                                    href={exp.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="lg:col-span-8 relative aspect-[16/10] overflow-hidden rounded-sm border border-white/5 bg-[#050505] block"
+                                >
                                     <Image
                                         src={exp.image || '/hero-bg.png'}
                                         alt={exp.title}
@@ -76,9 +81,9 @@ export default function CategoryPage() {
                                         sizes="(max-width: 1024px) 100vw, 50vw"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-transparent to-transparent" />
-                                </div>
+                                </a>
 
-                                {/* Text Detail */}
+                                {/* Text Detail - Only button is clickable */}
                                 <div className="lg:col-span-4 pb-4 md:pb-8">
                                     <h2 className="text-2xl md:text-4xl font-display font-light mb-4 md:mb-6 tracking-tight">
                                         {exp.title}
