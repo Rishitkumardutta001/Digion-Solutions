@@ -31,20 +31,20 @@ export default function CategoryPage() {
             </div>
 
             {/* Room Hero */}
-            <section className="container mx-auto px-6 pt-12 pb-32">
+            <section className="container mx-auto px-6 pt-8 pb-20 md:pt-12 md:pb-32">
                 <div className="max-w-4xl">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <span className="text-[10px] font-medium tracking-[0.4em] text-accent/60 uppercase block mb-8">
+                        <span className="text-[10px] font-medium tracking-[0.4em] text-accent/60 uppercase block mb-6 md:mb-8">
                             {category.subtext}
                         </span>
-                        <h1 className="text-5xl md:text-8xl font-display font-light mb-12 tracking-tight leading-tight">
+                        <h1 className="text-4xl md:text-8xl font-display font-light mb-8 md:mb-12 tracking-tight leading-tight">
                             {category.title}
                         </h1>
-                        <p className="text-lg md:text-2xl text-text-dim/70 font-light leading-relaxed max-w-3xl">
+                        <p className="text-base md:text-2xl text-text-dim/70 font-light leading-relaxed max-w-3xl">
                             {category.descriptor}
                         </p>
                     </motion.div>
@@ -53,7 +53,7 @@ export default function CategoryPage() {
 
             {/* Curated Experiences Gallery */}
             <section className="container mx-auto px-6 pb-40">
-                <div className="max-w-6xl mx-auto flex flex-col gap-32">
+                <div className="max-w-6xl mx-auto flex flex-col gap-20 md:gap-32">
                     {category.experiences.map((exp, i) => (
                         <motion.div
                             key={i}
@@ -74,11 +74,11 @@ export default function CategoryPage() {
                                 </div>
 
                                 {/* Text Detail */}
-                                <div className="lg:col-span-4 pb-8">
-                                    <h3 className="text-3xl md:text-4xl font-display font-light mb-6 tracking-tight">
+                                <div className="lg:col-span-4 pb-4 md:pb-8">
+                                    <h3 className="text-2xl md:text-4xl font-display font-light mb-4 md:mb-6 tracking-tight">
                                         {exp.title}
                                     </h3>
-                                    <p className="text-text-dim font-light leading-relaxed mb-10">
+                                    <p className="text-sm md:text-base text-text-dim font-light leading-relaxed mb-8 md:mb-10">
                                         {exp.descriptor}
                                     </p>
 
