@@ -6,6 +6,7 @@ import HowWeWork from "@/components/HowWeWork";
 import Experience from "@/components/Experience";
 import WhyDigiOn from "@/components/WhyDigiOn";
 import Industries from "@/components/Industries";
+import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <Industries />
       <HowWeWork />
       <WhyDigiOn />
+      <Testimonials />
       <FinalCTA />
     </main>
   );

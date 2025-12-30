@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const industries = [
-    "Global Enterprise", "B2B SaaS", "FinTech", "Healthcare", "Real Estate", "Manufacturing"
+    "Automobile & EV", "Kitchen & Home Appliances", "Education & Schools", "Healthcare & Wellness", "Industrial Engineering", "FinTech & IT SaaS"
 ];
 
 export default function Industries() {
