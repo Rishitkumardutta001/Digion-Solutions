@@ -20,6 +20,10 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "DigiOn Solutions | Engineering Digital Dominance with AI, Marketing & Design",
   description: "DigiOn Solutions is a premium digital engineering studio. We architect growth through AI-powered automation, strategic performance marketing, and elite design solutions with proven ROI.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
