@@ -25,12 +25,22 @@ export default function About() {
                     transition={{ delay: 0.2 }}
                     className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left text-text-dim text-lg font-light leading-relaxed"
                 >
-                    <p>
-                        DigiOn Solutions is not a typical agency. We are a private digital engineering studio partnering with a select group of global enterprises.
-                    </p>
-                    <p>
-                        Our mandate is simple: Precision. From the first line of code to the final AI automation, everything we build is intentional, scalable, and designed for dominance.
-                    </p>
+                    <div className="space-y-6">
+                        <p>
+                            DigiOn Solutions is directed by elite MNC-pedigree leadership with backgrounds at **Oracle, HP, and Vedantu**. We bring over **60+ years of combined industry expertise** to every partnership.
+                        </p>
+                        <p>
+                            We are not a typical agency. We are a private digital engineering studio that transforms complex business challenges into automated, high-yield digital assets.
+                        </p>
+                    </div>
+                    <div className="space-y-6">
+                        <p>
+                            Our mandate is precision. Our results are calibrated for maximum impact—proven through **133% overall traffic increases** and **68% reductions in acquisition costs** within our first days of engagement.
+                        </p>
+                        <p>
+                            From the first line of code to the final AI automation, everything we build is intentional, scalable, and designed for total market dominance.
+                        </p>
+                    </div>
                 </motion.div>
             </div>
         </section>

@@ -8,35 +8,35 @@ const experiences = [
     {
         title: "Aeronyx V3",
         category: "Private Aviation",
-        descriptor: "Ultra-luxury private aviation digital experience",
+        descriptor: "Redefining ultra-luxury charter with high-precision engineering—achieving a 13x increase in digital conversion rates.",
         href: "https://aerionyx-v3.vercel.app/",
         image: "/work-aerionyx-v3.png"
     },
     {
         title: "Aeronyx Studio",
         category: "Digital Experience",
-        descriptor: "Curated platform for aviation excellence",
+        descriptor: "Curated platform for aviation excellence, delivering 133% growth in overall digital engagement and visibility.",
         href: "https://studio.digion.in/websites/website-aerionyx-air",
         image: "/work-aerionyx-studio.png"
     },
     {
         title: "Luxe Lift Air",
         category: "Private Aviation",
-        descriptor: "Premium charter experience platform",
+        descriptor: "Premium charter experience platform engineered for cost-efficiency—realizing a 68% reduction in lead acquisition costs.",
         href: "https://luxe-lift-air.vercel.app/",
         image: "/work-luxe-lift.png"
     },
     {
         title: "Aeronyx V2",
         category: "Private Aviation",
-        descriptor: "Evolution of private charter experience",
+        descriptor: "A strategic evolution in digital charter systems, optimizing global outreach and brand authority.",
         href: "https://aerionyx-v2.vercel.app/",
         image: "/work-aerionyx-v2.png"
     },
     {
         title: "Estate Prime",
         category: "Luxury Real Estate",
-        descriptor: "Elevated property discovery platform",
+        descriptor: "Elevated property discovery platform that captures high-net-worth demand with silicon-valley precision.",
         href: "https://real-estate-demo-1-livid.vercel.app",
         image: "/work-realestate.png"
     }

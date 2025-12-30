@@ -14,14 +14,15 @@ export default function Footer() {
                         </Link>
                         <p className="text-text-dim text-sm leading-relaxed">
                             Private Digital Engineering Studio. <br />
-                            By Invitation Only.
+                            Leading Digital Marketing Agency & <br />
+                            AI Automation Partner.
                         </p>
                     </div>
 
                     <div>
                         <h4 className="text-white font-bold mb-6">Capabilities</h4>
                         <ul className="space-y-3">
-                            {["Digital Platforms", "Growth Systems", "AI Intelligence", "Brand Experience"].map((item) => (
+                            {["AI & Automation", "Performance Marketing", "SEO Strategy", "Creative Design"].map((item) => (
                                 <li key={item}>
                                     <Link href="#" className="text-text-dim text-sm hover:text-accent transition-colors">
                                         {item}

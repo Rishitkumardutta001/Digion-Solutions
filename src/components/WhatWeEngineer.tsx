@@ -5,20 +5,20 @@ import { cn } from "@/lib/utils";
 
 const capabilities = [
     {
-        title: "Digital Platforms & Websites",
-        desc: "Architecting high-performance, SEO-first web experiences that serve as the foundation of your digital estate."
+        title: "AI & Neural Automation",
+        desc: "Deploying custom AI Chatbots, Business Process Automation, and Neural Architectures to eliminate operational drag and ensure 24/7 efficiency."
     },
     {
-        title: "Growth & Performance Systems",
-        desc: "Data-driven marketing infrastructures designed to capture, nurture, and convert high-value leads."
+        title: "Strategic Performance Marketing",
+        desc: "Engineered SEO, Paid Performance, and B2B Lead Generation systems designed to maximize ROI and reduce Customer Acquisition Cost (CAC)."
     },
     {
-        title: "AI Automation & Intelligence",
-        desc: "Deploying custom AI agents and workflow automations to reduce operational drag and scale efficiency."
+        title: "Creative & Logic Design",
+        desc: "High-end product branding, UI/UX architecture, and professional video production that commands attention and converts high-value visionaries."
     },
     {
-        title: "Brand & Experience Design",
-        desc: "Crafting visual identities and corporate narratives that command authority in the global marketplace."
+        title: "Digital Infrastructure",
+        desc: "Building rock-solid, SEO-first web experiences and secure architectures that scale with the complexity of your global operation."
     }
 ];
 

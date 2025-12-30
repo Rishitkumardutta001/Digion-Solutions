@@ -33,7 +33,7 @@ export default function Hero() {
                             transition={{ duration: 1, delay: 0.3 }}
                             className="block"
                         >
-                            We Engineer <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/60">Growth-Systems.</span>
+                            Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/60">Digital Dominance.</span>
                         </motion.span>
                         <motion.span
                             initial={{ opacity: 0, y: 20 }}
@@ -41,12 +41,12 @@ export default function Hero() {
                             transition={{ duration: 1, delay: 0.5 }}
                             className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-200/50 to-accent/50 opacity-90"
                         >
-                            Not Just Websites.
+                            AI. Marketing. Design.
                         </motion.span>
                     </h1>
 
-                    <p className="text-lg md:text-xl text-text-dim/80 mb-10 max-w-2xl mx-auto leading-loose font-light tracking-wide">
-                        A curated gateway to premium digital experiences. We combine enterprise strategy with silicon-valley precision.
+                    <p className="text-lg md:text-xl text-text-dim/80 mb-10 max-w-3xl mx-auto leading-loose font-light tracking-wide">
+                        The private studio for high-stakes digital systems. We architect growth through <span className="text-white">AI-Powered Automation</span>, <span className="text-white">Performance Marketing</span>, and <span className="text-white">Elite Design Solutions</span>.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
