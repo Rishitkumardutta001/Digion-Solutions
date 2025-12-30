@@ -21,7 +21,7 @@ export default function WhyDigiOn() {
                         {[
                             { title: "Precision over Volume", desc: "We accept limited engagements to ensure absolute focus on your architecture." },
                             { title: "Engineering First", desc: "Strategy is useless without execution. We are builders at our core." },
-                            { title: "Long-Term Thinking", desc: "We deploy systems designed to survive and thrive in a fluctuating market." }
+                            { title: "Accredited Excellence", desc: "Recognized as a Top 10 Most Promising Digital Marketing Consultant and a Top 20 Digital Agency in India." }
                         ].map((item, i) => (
                             <motion.div
                                 key={i}
