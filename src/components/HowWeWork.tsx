@@ -8,7 +8,7 @@ const steps = [
 
 export default function HowWeWork() {
     return (
-        <section className="py-32 bg-primary">
+        <section id="how-we-work" className="py-32 bg-primary">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-16">
                     <div className="md:w-1/3">

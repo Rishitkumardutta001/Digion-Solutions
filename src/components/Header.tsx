@@ -21,39 +21,68 @@ export default function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
-    // Scroll Spy & Header Background
+    // Intersection Observer for Active Section
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
+        if (pathname !== "/") {
+            setActiveSection("");
+            return;
+        }
 
-            // Determine active section
-            const sections = navLinks.map(link => link.href.substring(1));
-            let current = "";
-
-            for (const section of sections) {
-                const element = document.getElementById(section);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
-                    if (rect.top <= 150) {
-                        current = section;
-                    }
-                }
-            }
-            setActiveSection(current);
+        const observerOptions = {
+            root: null,
+            rootMargin: "-25% 0px -65% 0px", // Precise window for active state
+            threshold: 0
         };
 
-        window.addEventListener("scroll", handleScroll);
-        handleScroll(); // Initial check
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+        const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(handleIntersection, observerOptions);
+
+        // Track all major sections
+        const sections = [
+            "about",
+            "capabilities",
+            "experience",
+            "industries",
+            "how-we-work",
+            "why-digion",
+            "testimonials",
+            "contact"
+        ];
+
+        sections.forEach((id) => {
+            const element = document.getElementById(id);
+            if (element) observer.observe(element);
+        });
+
+        // Simple scroll listener for header background only
+        const handleHeaderScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+
+        window.addEventListener("scroll", handleHeaderScroll);
+        handleHeaderScroll();
+
+        return () => {
+            observer.disconnect();
+            window.removeEventListener("scroll", handleHeaderScroll);
+        };
+    }, [pathname]);
 
     const scrollToSection = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        const targetId = href.split("#")[1];
+
         if (pathname === "/") {
             e.preventDefault();
-            const targetId = href.split("#")[1];
             const element = document.getElementById(targetId);
             if (element) {
-                const offset = 80;
+                const offset = 100; // Slightly larger offset for better clearance
                 const bodyRect = document.body.getBoundingClientRect().top;
                 const elementRect = element.getBoundingClientRect().top;
                 const elementPosition = elementRect - bodyRect;
@@ -69,7 +98,6 @@ export default function Header() {
                 setIsOpen(false);
             }
         }
-        // If not on home page, we let the default Link behavior or standard <a> handle the navigation to /#id
     }, [pathname]);
 
     return (
