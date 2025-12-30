@@ -64,11 +64,11 @@ export default function FinalCTA() {
                         </span>
                         <h2 className="text-4xl md:text-6xl font-display font-light text-white/95 mb-8 tracking-tight leading-tight">
                             Ready to Engineer <br />
-                            <span className="text-accent">Dominance?</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/60 text-white/90">Studio Precision.</span>
                         </h2>
-                        <p className="text-sm md:text-base text-white/60 font-light tracking-wide max-w-xl mx-auto leading-relaxed">
+                        <p className="text-sm md:text-base text-white/50 font-light tracking-wide max-w-xl mx-auto leading-relaxed">
                             We operate by invitation and selective application. <br />
-                            Tell us about your digital vision.
+                            Experience the standard of elite digital infrastructure.
                         </p>
                     </div>
 
@@ -142,7 +142,7 @@ export default function FinalCTA() {
                                         <button
                                             disabled={status === "loading"}
                                             type="submit"
-                                            className="group relative px-12 py-5 bg-transparent overflow-hidden rounded-full transition-all hover:scale-105 duration-500 hover:shadow-[0_0_40px_rgba(16,185,129,0.15)] disabled:opacity-50 disabled:scale-100 disabled:shadow-none"
+                                            className="group relative px-12 py-5 bg-transparent overflow-hidden rounded-full transition-all hover:scale-105 duration-500 hover:shadow-[0_0_40px_rgba(212,175,55,0.15)] disabled:opacity-50 disabled:scale-100 disabled:shadow-none"
                                         >
                                             <div className="absolute inset-0 w-full h-full bg-accent/10 group-hover:bg-accent/20 transition-colors duration-500" />
                                             <div className="absolute inset-0 border border-accent/30 rounded-full group-hover:border-accent/50 transition-colors duration-500" />

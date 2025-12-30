@@ -2,16 +2,34 @@
 
 @theme {
   --color-primary: #050505;
-  /* Midnight Graphite (Background) */
-  --color-secondary: #0F121C;
-  /* Lighter Graphite (Cards/Sections) */
-  --color-accent: #00FFA3;
-  /* Mint Neon */
-  --color-accent-glow: rgba(0, 255, 163, 0.4);
-  --color-text-light: #E2E8F0;
-  --color-text-dim: #CBD5E1;
+  /* Deep Black */
+  --color-secondary: #0A0C12;
+  /* Deep Navy-tinted Black */
+  --color-accent: #D4AF37;
+  /* Metallic Gold */
+  --color-accent-glow: rgba(212, 175, 55, 0.4);
+  --color-text-light: #F8FAFC;
+  --color-text-dim: #94A3B8;
   --font-display: var(--font-outfit), sans-serif;
   --font-body: var(--font-inter), sans-serif;
+}
+
+@utility metallic-glass {
+  background: linear-gradient(180deg,
+      rgba(10, 12, 18, 0.95) 0%,
+      rgba(10, 12, 18, 0.85) 100%);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 :root {

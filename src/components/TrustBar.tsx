@@ -23,7 +23,7 @@ export default function TrustBar() {
                             transition={{ delay: i * 0.1 }}
                             className="flex items-center gap-3"
                         >
-                            <div className="w-1.5 h-1.5 rounded-full bg-accent/40" />
+                            <div className="w-1 h-1 rounded-full bg-accent/40 shadow-[0_0_10px_rgba(212,175,55,0.3)]" />
                             <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] text-white/40 uppercase">
                                 {award}
                             </span>

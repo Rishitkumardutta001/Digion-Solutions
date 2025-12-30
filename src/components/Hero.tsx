@@ -5,6 +5,28 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Hero() {
+    const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (window.location.pathname === "/") {
+            e.preventDefault();
+            const targetId = href.split("#")[1];
+            const element = document.getElementById(targetId);
+            if (element) {
+                const offset = 80;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+
+                window.history.pushState(null, "", href);
+            }
+        }
+    };
+
     return (
         <section className="relative w-full min-h-screen flex flex-col items-center justify-center pt-[5px] md:pt-[21px] pb-10 md:pb-16 px-6 overflow-hidden bg-primary">
             {/* Abstract Background Texture - Optimized for LCP */}
@@ -41,7 +63,7 @@ export default function Hero() {
                         <span className="block">
                             Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/60">Digital Dominance.</span>
                         </span>
-                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-200/50 to-accent/50 opacity-90">
+                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/40">
                             AI. Marketing. Design.
                         </span>
                     </h1>
@@ -52,8 +74,9 @@ export default function Hero() {
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
                         <Link
-                            href="#contact"
-                            className="group relative px-10 py-5 bg-transparent overflow-hidden rounded-full transition-all hover:scale-105 duration-500 hover:shadow-[0_0_40px_rgba(16,185,129,0.15)]"
+                            href="/#contact"
+                            onClick={(e) => scrollToSection(e as any, "/#contact")}
+                            className="group relative px-10 py-5 bg-transparent overflow-hidden rounded-full transition-all hover:scale-105 duration-500 hover:shadow-[0_0_40px_rgba(212,175,55,0.15)]"
                         >
                             <div className="absolute inset-0 w-full h-full bg-accent/5 group-hover:bg-accent/10 transition-colors duration-500" />
                             <div className="absolute inset-0 border border-accent/20 rounded-full group-hover:border-accent/40 transition-colors duration-500" />
@@ -62,12 +85,13 @@ export default function Hero() {
                                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                             </span>
                         </Link>
-                        <Link
-                            href="#experience"
-                            className="text-text-dim hover:text-white transition-all tracking-widest text-xs uppercase border-b border-transparent hover:border-white/20 pb-1 hover:translate-x-1 duration-300"
+                        <a
+                            href="/#experience"
+                            onClick={(e) => scrollToSection(e, "/#experience")}
+                            className="text-white/40 hover:text-white transition-all tracking-widest text-xs font-bold uppercase border-b border-transparent hover:border-accent/60 pb-1 hover:translate-x-1 duration-300 cursor-pointer"
                         >
                             Explore Our Work
-                        </Link>
+                        </a>
                     </div>
                 </motion.div>
             </div>

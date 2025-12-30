@@ -26,12 +26,17 @@ export default function HowWeWork() {
                     <div className="md:w-2/3">
                         <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
                             {steps.map((step, i) => (
-                                <div key={i} className="relative group cursor-default">
-                                    <div className="h-full border-l border-white/10 pl-6 py-4 group-hover:border-accent transition-colors duration-500">
-                                        <span className="text-xs text-text-dim/50 font-mono mb-2 block group-hover:text-accent/50 transition-colors">0{i + 1}</span>
-                                        <span className="text-lg font-medium text-white group-hover:text-accent transition-colors duration-300 transform group-hover:translate-x-2 inline-block">{step}</span>
+                                <motion.div
+                                    key={i}
+                                    whileHover={{ x: 8 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                                    className="relative group cursor-default"
+                                >
+                                    <div className="h-full border-l border-white/5 pl-6 py-4 group-hover:border-accent transition-all duration-500">
+                                        <span className="text-[10px] text-white/20 font-mono mb-2 block group-hover:text-accent/60 group-hover:translate-x-1 transition-all">0{i + 1}</span>
+                                        <span className="text-lg font-light text-white group-hover:text-white transition-colors duration-300 inline-block uppercase tracking-wider">{step}</span>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                     </div>

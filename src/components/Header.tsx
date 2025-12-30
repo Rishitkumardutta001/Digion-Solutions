@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -14,16 +15,62 @@ const navLinks = [
 ];
 
 export default function Header() {
+    const router = useRouter();
+    const pathname = usePathname();
+    const [activeSection, setActiveSection] = useState("");
     const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
+    // Scroll Spy & Header Background
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
+
+            // Determine active section
+            const sections = navLinks.map(link => link.href.substring(1));
+            let current = "";
+
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= 150) {
+                        current = section;
+                    }
+                }
+            }
+            setActiveSection(current);
         };
+
         window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Initial check
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    const scrollToSection = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (pathname === "/") {
+            e.preventDefault();
+            const targetId = href.split("#")[1];
+            const element = document.getElementById(targetId);
+            if (element) {
+                const offset = 80;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+
+                // Update URL hash without jumping
+                window.history.pushState(null, "", href);
+                setIsOpen(false);
+            }
+        }
+        // If not on home page, we let the default Link behavior or standard <a> handle the navigation to /#id
+    }, [pathname]);
 
     return (
         <>
@@ -32,42 +79,79 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className={cn(
-                    "fixed top-0 left-0 right-0 z-50 transition-all duration-1000",
-                    // Deeper refinement: Extremely subtle hairline, almost invisible
-                    "bg-[#050505]/60 backdrop-blur-[12px] border-b border-white/[0.02]"
+                    "fixed top-0 left-0 right-0 z-50 transition-all duration-700",
+                    scrolled
+                        ? "metallic-glass py-4 shadow-xl"
+                        : "bg-primary/40 backdrop-blur-sm py-8 border-b border-white/[0.02]"
                 )}
             >
-                <div className="container mx-auto px-8 h-24 flex items-center justify-between">
+                {/* Metallic Chrome Sheen Overlay */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
+                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-transparent" />
+                </div>
+
+                <div className="container mx-auto px-8 flex items-center justify-between relative z-10">
                     {/* Logo */}
-                    <Link href="/" className="relative h-12 w-40 hover:opacity-80 transition-opacity duration-500">
+                    <Link
+                        href="/"
+                        onClick={(e) => {
+                            if (pathname === "/") {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                                window.history.pushState(null, "", "/");
+                            }
+                        }}
+                        className="relative h-10 w-36 hover:opacity-80 transition-opacity duration-500"
+                    >
                         <Image
                             src="/logo.png"
                             alt="DigiOn Solutions"
                             fill
                             className="object-contain opacity-90"
                             priority
-                            sizes="(max-width: 768px) 160px, 160px"
                         />
                     </Link>
 
                     {/* Desktop Nav */}
-                    <nav className="hidden md:flex items-center gap-2">
+                    <nav className="hidden md:flex items-center gap-1">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="px-6 py-2 rounded-full text-sm font-medium text-white/60 hover:text-white hover:bg-white/[0.03] transition-all duration-500 tracking-[0.05em] uppercase"
+                                onClick={(e) => scrollToSection(e, link.href)}
+                                className={cn(
+                                    "px-6 py-2 rounded-full text-xs font-bold tracking-[0.2em] uppercase transition-all duration-500 relative group",
+                                    activeSection === link.href.split("#")[1]
+                                        ? "text-accent"
+                                        : "text-white/40 hover:text-white"
+                                )}
                             >
                                 {link.name}
+                                {activeSection === link.href.split("#")[1] && (
+                                    <motion.div
+                                        layoutId="nav-active"
+                                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-accent rounded-full"
+                                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                                    />
+                                )}
                             </Link>
                         ))}
                     </nav>
 
                     {/* CTA */}
-                    <div className="hidden md:block">
+                    <div className="hidden md:flex items-center gap-6">
+                        <a
+                            href="tel:+919886616448"
+                            className="text-white/40 hover:text-accent transition-colors"
+                            aria-label="Call DigiOn"
+                        >
+                            <Phone size={18} />
+                        </a>
                         <Link
                             href="/#contact"
-                            className="inline-flex items-center justify-center px-8 py-3 text-xs font-bold uppercase tracking-[0.15em] text-[#050505] bg-accent rounded-sm hover:bg-white transition-all duration-700 hover:shadow-[0_0_50px_rgba(16,185,129,0.12)]"
+                            onClick={(e) => scrollToSection(e, "/#contact")}
+                            className="inline-flex items-center justify-center px-8 py-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#050505] bg-accent rounded-sm hover:bg-white transition-all duration-700 shadow-[0_0_20px_rgba(212,175,55,0.15)]"
                         >
                             Private Access
                         </Link>
@@ -75,10 +159,9 @@ export default function Header() {
 
                     {/* Mobile Toggle */}
                     <button
-                        className="md:hidden text-white/80 hover:text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50"
+                        className="md:hidden text-white/80 hover:text-white p-2 rounded-md focus:outline-none"
                         onClick={() => setIsOpen(!isOpen)}
                         aria-label={isOpen ? "Close menu" : "Open menu"}
-                        aria-expanded={isOpen}
                     >
                         {isOpen ? <X size={20} /> : <Menu size={20} />}
                     </button>
@@ -92,7 +175,7 @@ export default function Header() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-40 bg-[#050505]/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-8 md:hidden"
+                        className="fixed inset-0 z-40 bg-[#050505]/98 backdrop-blur-2xl flex flex-col items-center justify-center gap-10 md:hidden"
                     >
                         {navLinks.map((link, i) => (
                             <motion.div
@@ -103,8 +186,11 @@ export default function Header() {
                             >
                                 <Link
                                     href={link.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className="text-3xl font-light text-white hover:text-accent transition-colors"
+                                    onClick={(e) => scrollToSection(e, link.href)}
+                                    className={cn(
+                                        "text-4xl font-display font-light transition-colors",
+                                        activeSection === link.href.split("#")[1] ? "text-accent" : "text-white/60 hover:text-white"
+                                    )}
                                 >
                                     {link.name}
                                 </Link>
@@ -112,8 +198,8 @@ export default function Header() {
                         ))}
                         <Link
                             href="/#contact"
-                            onClick={() => setIsOpen(false)}
-                            className="mt-8 px-8 py-3 bg-accent text-[#050505] font-bold rounded-sm uppercase tracking-widest text-sm"
+                            onClick={(e) => scrollToSection(e, "/#contact")}
+                            className="mt-8 px-10 py-4 bg-accent text-[#050505] font-bold rounded-sm uppercase tracking-[0.2em] text-xs shadow-[0_0_30px_rgba(212,175,55,0.2)]"
                         >
                             Private Access
                         </Link>

@@ -35,7 +35,7 @@ export default function WhatWeEngineer() {
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-white/5">
+                <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-accent/10">
                     {capabilities.map((cap, i) => (
                         <motion.div
                             key={i}
@@ -43,11 +43,19 @@ export default function WhatWeEngineer() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="bg-primary p-12 relative group overflow-hidden border-b border-r border-white/5"
+                            className="bg-primary p-12 relative group overflow-hidden border-b border-r border-accent/10"
                         >
+                            {/* Metallic Accent Glow */}
+                            <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+                            {/* Decorative Corner Marker */}
+                            <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none">
+                                <div className="absolute top-4 right-4 w-1 h-1 bg-accent/20 rounded-full group-hover:bg-accent/40 transition-colors" />
+                            </div>
+
                             <div className="absolute inset-0 bg-white/[0.02] scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom" />
 
-                            <h3 className="text-2xl font-light text-white mb-4 group-hover:text-accent transition-colors relative z-10">
+                            <h3 className="text-2xl font-light text-white mb-4 group-hover:text-accent transition-colors relative z-10 duration-500">
                                 {cap.title}
                             </h3>
                             <p className="text-white/60 leading-relaxed font-light relative z-10 group-hover:text-white/80 transition-colors">

@@ -2,11 +2,31 @@
 
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, animate, useMotionValue, useTransform, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { categories } from "@/lib/experience-data";
 import { notFound } from "next/navigation";
+
+function AnimatedNumber({ value }: { value: number }) {
+    const count = useMotionValue(0);
+    const rounded = useTransform(count, (latest) => Math.round(latest));
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+
+    useEffect(() => {
+        if (isInView) {
+            const controls = animate(count, value, {
+                duration: 2,
+                ease: [0.16, 1, 0.3, 1]
+            });
+            return controls.stop;
+        }
+    }, [isInView, value, count]);
+
+    return <motion.span ref={ref}>{rounded}</motion.span>;
+}
 
 export default function CategoryPage() {
     const params = useParams();
@@ -54,52 +74,106 @@ export default function CategoryPage() {
 
             {/* Curated Experiences Gallery */}
             <section className="container mx-auto px-6 pb-40">
-                <div className="max-w-6xl mx-auto flex flex-col gap-20 md:gap-32">
+                <div className="max-w-6xl mx-auto flex flex-col gap-32 md:gap-48">
                     {category.experiences.map((exp, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, y: 40 }}
+                            initial={{ opacity: 0, y: 60 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-10%" }}
-                            transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                            className="group"
+                            transition={{ duration: 1.2, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                         >
-                            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-                                {/* Visual Card - Clickable */}
-                                <a
-                                    href={exp.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="lg:col-span-8 relative aspect-[16/10] overflow-hidden rounded-sm border border-white/5 bg-[#050505] block"
-                                >
-                                    <Image
-                                        src={exp.image || '/hero-bg.png'}
-                                        alt={exp.title}
-                                        fill
-                                        quality={60}
-                                        className="object-cover object-center transition-transform duration-[2000ms] ease-out group-hover:scale-105 opacity-80"
-                                        sizes="(max-width: 1024px) 100vw, 50vw"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-transparent to-transparent" />
-                                </a>
+                            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+                                {/* Dual Device Preview */}
+                                <div className="lg:col-span-8 relative">
+                                    <a
+                                        href={exp.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="block relative group"
+                                    >
+                                        {/* Desktop Frame */}
+                                        <div className="relative aspect-[16/10] overflow-hidden rounded-sm border border-white/10 bg-[#0A0A0A] shadow-2xl">
+                                            <Image
+                                                src={exp.image || '/hero-bg.png'}
+                                                alt={exp.title}
+                                                fill
+                                                quality={80}
+                                                className="object-cover object-top transition-transform duration-[3000ms] ease-out group-hover:scale-105"
+                                                sizes="(max-width: 1024px) 100vw, 60vw"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-[#020202]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                                        </div>
 
-                                {/* Text Detail - Only button is clickable */}
-                                <div className="lg:col-span-4 pb-4 md:pb-8">
-                                    <h2 className="text-2xl md:text-4xl font-display font-light mb-4 md:mb-6 tracking-tight">
-                                        {exp.title}
-                                    </h2>
-                                    <p className="text-sm md:text-base text-white/60 font-light leading-relaxed mb-8 md:mb-10">
-                                        {exp.descriptor}
-                                    </p>
+                                        {/* Mobile Frame Overlap */}
+                                        {exp.mobileImage && (
+                                            <div className="absolute -bottom-6 -right-6 md:-bottom-12 md:-right-12 w-[120px] md:w-[200px] aspect-[9/19.5] rounded-[2rem] border-[6px] border-[#1A1A1A] bg-[#050505] shadow-[0_30px_60px_rgba(0,0,0,0.8)] overflow-hidden hidden sm:block transition-transform duration-700 group-hover:translate-y-[-10px]">
+                                                <Image
+                                                    src={exp.mobileImage}
+                                                    alt={`${exp.title} mobile view`}
+                                                    fill
+                                                    className="object-cover"
+                                                    sizes="200px"
+                                                />
+                                                {/* Device Shine */}
+                                                <div className="absolute inset-x-0 top-0 h-1 bg-white/10" />
+                                            </div>
+                                        )}
+                                    </a>
+                                </div>
+
+                                {/* Engineering Details */}
+                                <div className="lg:col-span-4 lg:pt-12">
+                                    <div className="mb-8">
+                                        <h2 className="text-3xl md:text-4xl font-display font-light mb-6 tracking-tight text-white/95">
+                                            {exp.title}
+                                        </h2>
+                                        <p className="text-sm md:text-base text-white/50 font-light leading-relaxed mb-10">
+                                            {exp.descriptor}
+                                        </p>
+                                    </div>
+
+                                    {/* Lighthouse Metrics - Editorial Styling */}
+                                    {exp.scores && (
+                                        <div className="grid grid-cols-2 gap-x-8 gap-y-10 mb-12 py-8 border-y border-white/[0.03]">
+                                            {[
+                                                { label: "Performance", value: exp.scores.performance },
+                                                { label: "SEO", value: exp.scores.seo },
+                                                { label: "Accessibility", value: exp.scores.accessibility },
+                                                { label: "Best Practices", value: exp.scores.bestPractices }
+                                            ].map((score) => (
+                                                <div key={score.label} className="space-y-3">
+                                                    <div className="flex items-end justify-between">
+                                                        <span className="text-[9px] uppercase tracking-[0.2em] text-white/30">{score.label}</span>
+                                                        <span className="text-lg font-display font-light text-accent leading-none">
+                                                            <AnimatedNumber value={score.value} />
+                                                        </span>
+                                                    </div>
+                                                    <div className="h-[1px] w-full bg-white/[0.05] relative overflow-hidden">
+                                                        <motion.div
+                                                            initial={{ width: 0 }}
+                                                            whileInView={{ width: `${score.value}%` }}
+                                                            viewport={{ once: true }}
+                                                            transition={{ duration: 1.5, ease: "easeOut" }}
+                                                            className="absolute inset-y-0 left-0 bg-accent/40"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
 
                                     <a
                                         href={exp.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-3 text-[10px] font-medium tracking-[0.3em] text-accent uppercase group/link"
+                                        className="inline-flex items-center gap-4 text-[10px] font-bold tracking-[0.3em] text-accent uppercase group/link"
                                     >
-                                        Private View
-                                        <ArrowUpRight size={14} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                                        <span className="relative">
+                                            Private View
+                                            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-500 group-hover/link:w-full" />
+                                        </span>
+                                        <ArrowUpRight size={14} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform duration-500" />
                                     </a>
                                 </div>
                             </div>

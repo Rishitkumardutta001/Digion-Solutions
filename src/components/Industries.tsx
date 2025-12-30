@@ -24,7 +24,7 @@ export default function Industries() {
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="border-l border-white/10 pl-6 py-2"
+                            className="border-l border-accent/20 pl-6 py-2"
                         >
                             <span className="text-lg font-light text-white/60 hover:text-white transition-colors cursor-default">
                                 {ind}

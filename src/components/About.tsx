@@ -23,9 +23,9 @@ export default function About() {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    className="text-2xl md:text-4xl font-display font-light text-white leading-relaxed mb-12"
+                    className="text-2xl md:text-4xl font-display font-light text-white/90 leading-relaxed mb-12"
                 >
-                    "We do not chase trends. We build <span className="text-accent">digital infrastructure</span> that compounds in value over time."
+                    "We do not chase trends. We build <span className="text-white">digital infrastructure</span> that compounds in value over time."
                 </motion.h2>
 
                 <motion.div
