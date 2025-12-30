@@ -13,7 +13,7 @@ export default function Footer() {
                             <img
                                 src="/logo.jpg"
                                 alt="DigiOn Solutions"
-                                className="h-full w-full object-contain invert opacity-60 hover:opacity-90 transition-opacity mix-blend-screen"
+                                className="h-full w-full object-contain opacity-60 hover:opacity-90 transition-opacity mix-blend-screen"
                             />
                         </Link>
                         <p className="text-text-dim text-sm leading-relaxed">

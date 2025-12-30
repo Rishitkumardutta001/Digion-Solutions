@@ -42,7 +42,7 @@ export default function Header() {
                         <img
                             src="/logo.jpg"
                             alt="DigiOn Solutions"
-                            className="h-full w-full object-contain invert opacity-90 mix-blend-screen"
+                            className="h-full w-full object-contain opacity-90 mix-blend-screen"
                         />
                     </Link>
 
