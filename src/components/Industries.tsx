@@ -16,7 +16,7 @@ export default function Industries() {
                     </span>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-24">
                     {industries.map((ind, i) => (
                         <motion.div
                             key={i}
@@ -31,6 +31,19 @@ export default function Industries() {
                             </span>
                         </motion.div>
                     ))}
+                </div>
+
+                <div className="border-t border-white/5 pt-16">
+                    <span className="text-[9px] font-medium tracking-[0.4em] text-white/20 uppercase block mb-12 text-center">
+                        Brands We Scale
+                    </span>
+                    <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-10 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
+                        {["OBEN Electric", "Blowhot", "JTB", "Hydrofabs", "Wealthapp", "Fluenc", "IPflair", "SetupIQ"].map((brand) => (
+                            <span key={brand} className="text-xs md:text-sm font-medium tracking-widest text-white uppercase whitespace-nowrap">
+                                {brand}
+                            </span>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
