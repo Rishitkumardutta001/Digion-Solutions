@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import TrustBar from "@/components/TrustBar";
 import About from "@/components/About";
 import WhatWeEngineer from "@/components/WhatWeEngineer";
 import HowWeWork from "@/components/HowWeWork";
@@ -11,12 +12,13 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-primary">
       <Hero />
+      <TrustBar />
       <About />
       <WhatWeEngineer />
-      <HowWeWork />
       <Experience />
-      <WhyDigiOn />
       <Industries />
+      <HowWeWork />
+      <WhyDigiOn />
       <FinalCTA />
     </main>
   );
