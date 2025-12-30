@@ -11,9 +11,9 @@ export default function Footer() {
                     <div className="space-y-4">
                         <Link href="/" className="inline-block relative h-10 w-32 hover:opacity-80 transition-opacity duration-500">
                             <img
-                                src="/logo.jpg"
+                                src="/logo.png"
                                 alt="DigiOn Solutions"
-                                className="h-full w-full object-contain opacity-60 hover:opacity-90 transition-opacity mix-blend-screen"
+                                className="h-full w-full object-contain opacity-60 hover:opacity-90 transition-opacity"
                             />
                         </Link>
                         <p className="text-text-dim text-sm leading-relaxed">
@@ -39,13 +39,10 @@ export default function Footer() {
                     <div>
                         <h4 className="text-white font-bold mb-6">Studio</h4>
                         <ul className="space-y-3">
-                            {["About", "Experience", "Private Consultation", "Careers"].map((item) => (
-                                <li key={item}>
-                                    <Link href="#" className="text-text-dim text-sm hover:text-accent transition-colors">
-                                        {item}
-                                    </Link>
-                                </li>
-                            ))}
+                            <li><Link href="/#about" className="text-text-dim text-sm hover:text-accent transition-colors">About</Link></li>
+                            <li><Link href="/#experience" className="text-text-dim text-sm hover:text-accent transition-colors">Experience</Link></li>
+                            <li><Link href="/#contact" className="text-text-dim text-sm hover:text-accent transition-colors">Private Consultation</Link></li>
+                            <li><Link href="#" className="text-text-dim text-sm hover:text-accent transition-colors">Careers</Link></li>
                         </ul>
                     </div>
 

@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-    { name: "Studio", href: "#about" },
-    { name: "Capabilities", href: "#capabilities" },
-    { name: "Experience", href: "#experience" },
+    { name: "Studio", href: "/#about" },
+    { name: "Capabilities", href: "/#capabilities" },
+    { name: "Experience", href: "/#experience" },
 ];
 
 export default function Header() {
@@ -40,9 +40,9 @@ export default function Header() {
                     {/* Logo */}
                     <Link href="/" className="relative h-12 w-40 hover:opacity-80 transition-opacity duration-500">
                         <img
-                            src="/logo.jpg"
+                            src="/logo.png"
                             alt="DigiOn Solutions"
-                            className="h-full w-full object-contain opacity-90 mix-blend-screen"
+                            className="h-full w-full object-contain opacity-90"
                         />
                     </Link>
 
@@ -62,7 +62,7 @@ export default function Header() {
                     {/* CTA */}
                     <div className="hidden md:block">
                         <Link
-                            href="#contact"
+                            href="/#contact"
                             className="inline-flex items-center justify-center px-8 py-3 text-xs font-bold uppercase tracking-[0.15em] text-[#050505] bg-accent rounded-sm hover:bg-white transition-all duration-700 hover:shadow-[0_0_50px_rgba(16,185,129,0.12)]"
                         >
                             Private Access
@@ -105,7 +105,7 @@ export default function Header() {
                             </motion.div>
                         ))}
                         <Link
-                            href="#contact"
+                            href="/#contact"
                             onClick={() => setIsOpen(false)}
                             className="mt-8 px-8 py-3 bg-accent text-[#050505] font-bold rounded-sm uppercase tracking-widest text-sm"
                         >
