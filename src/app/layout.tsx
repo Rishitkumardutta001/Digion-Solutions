@@ -18,8 +18,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "DigiOn Solutions | Engineering Digital Growth",
-  description: "Premium digital agency and AI automation partner offering strategy, web design, digital marketing, and enterprise automation solutions.",
+  title: "DigiOn Solutions | Engineering Digital Dominance with AI, Marketing & Design",
+  description: "DigiOn Solutions is a premium digital engineering studio. We architect growth through AI-powered automation, strategic performance marketing, and elite design solutions with proven ROI.",
 };
 
 export default function RootLayout({
