@@ -21,8 +21,15 @@ export const metadata: Metadata = {
   title: "DigiOn Solutions | Engineering Digital Dominance with AI, Marketing & Design",
   description: "DigiOn Solutions is a premium digital engineering studio. We architect growth through AI-powered automation, strategic performance marketing, and elite design solutions with proven ROI.",
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
+    icon: [
+      { url: "/favicon.png" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.png",
+    apple: [
+      { url: "/apple-touch-icon.png" },
+      { url: "/apple-icon.png", type: "image/png" },
+    ],
   },
 };
 
